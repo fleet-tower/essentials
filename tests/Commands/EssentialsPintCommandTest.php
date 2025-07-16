@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\File;
-use NunoMaduro\Essentials\Commands\EssentialsPintCommand;
 
 beforeEach(function (): void {
     // Clean up any existing pint.json files
@@ -17,8 +16,6 @@ beforeEach(function (): void {
 });
 
 it('publishes pint configuration file', function (): void {
-    $command = new EssentialsPintCommand;
-
     $this->artisan('essentials:pint', ['--force' => true])
         ->assertExitCode(0);
 

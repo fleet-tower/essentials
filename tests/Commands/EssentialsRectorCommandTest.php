@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\File;
-use NunoMaduro\Essentials\Commands\EssentialsRectorCommand;
 
 beforeEach(function (): void {
     if (file_exists(base_path('rector.php'))) {
@@ -16,8 +15,6 @@ beforeEach(function (): void {
 });
 
 it('publishes rector configuration file', function (): void {
-    $command = new EssentialsRectorCommand();
-
     $this->artisan('essentials:rector', ['--force' => true])
         ->assertExitCode(0);
 
