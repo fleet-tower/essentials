@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NunoMaduro\Essentials\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 
 final class EssentialsPintCommand extends Command
 {
@@ -36,20 +37,20 @@ final class EssentialsPintCommand extends Command
         $stub_path = __DIR__.'/../../stubs/pint.stub';
         $destination_path = base_path('pint.json');
 
-        if (! file_exists($stub_path)) {
+        if (! File::exists($stub_path)) {
             $this->components->error('Pint configuration stub file not found.');
 
             return 1;
         }
 
-        if (file_exists($destination_path) && $this->option('backup')) {
-            copy($destination_path, $destination_path.'.backup');
+        if (File::exists($destination_path) && $this->option('backup')) {
+            File::copy($destination_path, $destination_path.'.backup');
             $this->components->info('Backup created at: '.$destination_path.'.backup');
         }
 
         $this->components->info('Publishing Pint configuration file...');
 
-        if (! copy($stub_path, $destination_path)) {
+        if (! File::copy($stub_path, $destination_path)) {
             $this->components->error('Failed to publish the Pint configuration file.');
 
             return 1;
