@@ -22,6 +22,27 @@ it('publishes pint configuration file', function (): void {
     expect(file_exists(base_path('pint.json')))->toBeTrue();
 });
 
+it('returns error when pint configuration file does not exist', function (): void {
+    // The stub file should not exist
+    File::shouldReceive('exists')
+        ->once()
+        ->andReturnFalse();
+
+    $this->artisan('essentials:pint', ['--force' => true])
+        ->assertExitCode(1);
+});
+
+it('returns error when copy operation fails', function (): void {
+    // The file should exist but not be copyable
+    File::shouldReceive('exists')->andReturnTrue();
+    File::shouldReceive('copy')
+        ->once()
+        ->andReturnFalse();
+
+    $this->artisan('essentials:pint', ['--force' => true])
+        ->assertExitCode(1);
+});
+
 it('creates a backup when requested', function (): void {
     // Create a dummy pint.json file first
     File::put(base_path('pint.json'), '{"test": "original"}');
@@ -42,6 +63,19 @@ it('warns when file exists and no force option', function (): void {
 
     // File should remain unchanged
     expect(file_get_contents(base_path('pint.json')))->toBe('{"test": "original"}');
+});
+
+it('publishes pint configuration file when user confirms', function (): void {
+    // Create a dummy pint.json file first
+    File::put(base_path('pint.json'), '{"test": "original"}');
+
+    $this->artisan('essentials:pint')
+        ->expectsConfirmation('Do you wish to publish the Pint configuration file? This will override the existing [pint.json] file.', 'yes')
+        ->assertExitCode(0);
+
+    expect(file_exists(base_path('pint.json')))
+        ->not()
+        ->toBe('{"test": "original"}');
 });
 
 afterEach(function (): void {
