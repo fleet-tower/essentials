@@ -15,11 +15,12 @@ beforeEach(function (): void {
     }
 });
 
-it('publishes pint configuration file', function (): void {
+it('publishes pint configuration file without a backup by default', function (): void {
     $this->artisan('essentials:pint', ['--force' => true])
         ->assertExitCode(0);
 
     expect(file_exists(base_path('pint.json')))->toBeTrue();
+    expect(file_exists(base_path('pint.json.backup')))->toBeFalse();
 });
 
 it('returns error when pint configuration file does not exist', function (): void {
