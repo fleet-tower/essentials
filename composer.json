@@ -11,16 +11,16 @@
     ],
     "require": {
         "php": "^8.3.0",
-        "laravel/framework": "^11.44.2|^12.17.0"
+        "laravel/framework": "^11.44.2|^12.29.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.22.1",
-        "orchestra/testbench": "^10.3.0",
-        "pestphp/pest": "^3.8.2",
-        "pestphp/pest-plugin-type-coverage": "^3.5.1",
-        "phpstan/phpstan": "^2.1.17",
-        "rector/rector": "^2.0.17",
-        "symfony/var-dumper": "^7.3.0"
+        "laravel/pint": "^1.25.0",
+        "orchestra/testbench": "^10.6.0",
+        "pestphp/pest": "^3.8.4",
+        "pestphp/pest-plugin-type-coverage": "^3.6.1",
+        "phpstan/phpstan": "^2.1.27",
+        "rector/rector": "^2.1.7",
+        "symfony/var-dumper": "^7.3.3"
     },
     "autoload": {
         "psr-4": {
