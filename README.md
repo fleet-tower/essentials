@@ -32,6 +32,12 @@ composer require nunomaduro/essentials:^0.1
 
 All features are optional and configurable in `config/essentials.php`.
 
+You may publish the configuration file with:
+
+```bash
+php artisan vendor:publish --tag=essentials-config
+```
+
 ## Table of Contents
 - [Strict Models](#-strict-models)
 - [Auto Eager Loading](#-auto-eager-loading)
