@@ -1,9 +1,11 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
+use FleetTower\Essentials\Configurables\ForceScheme;
 use Illuminate\Support\Facades\URL;
-use NunoMaduro\Essentials\Configurables\ForceScheme;
 
 beforeEach(function (): void {
     URL::forceScheme(null);
@@ -25,7 +27,7 @@ it('is enabled by default', function (): void {
 });
 
 it('can be disabled via configuration', function (): void {
-    config()->set('essentials.'.ForceScheme::class, false);
+    config()->set('essentials.' . ForceScheme::class, false);
 
     $forceScheme = new ForceScheme;
 
@@ -33,7 +35,7 @@ it('can be disabled via configuration', function (): void {
 });
 
 it('environments to be forced can be set via configuration', function (): void {
-    config()->set('essentials.environments.'.ForceScheme::class, ['local', 'testing']);
+    config()->set('essentials.environments.' . ForceScheme::class, ['local', 'testing']);
 
     $forceScheme = new ForceScheme;
 

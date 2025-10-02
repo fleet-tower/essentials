@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace NunoMaduro\Essentials;
+namespace FleetTower\Essentials;
 
+use FleetTower\Essentials\Contracts\Configurable;
 use Illuminate\Console\Command;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use NunoMaduro\Essentials\Contracts\Configurable;
 
 /**
  * @internal
@@ -37,8 +37,6 @@ final class EssentialsServiceProvider extends BaseServiceProvider
      * @var list<class-string<Command>>
      */
     private array $commandsList = [
-        Commands\EssentialsRectorCommand::class,
-        Commands\EssentialsPintCommand::class,
         Commands\MakeActionCommand::class,
     ];
 
@@ -54,14 +52,8 @@ final class EssentialsServiceProvider extends BaseServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands($this->commandsList);
-
-            $this->publishes([
-                __DIR__.'/../stubs' => $this->app->basePath('stubs'),
-            ], 'essentials-stubs');
-
-            $this->publishes([
-                __DIR__.'/../config/essentials.php' => config_path('essentials.php'),
-            ], 'essentials-config');
+            $this->publishes([__DIR__ . '/../stubs' => $this->app->basePath('stubs')], 'essentials-stubs');
+            $this->publishes([__DIR__ . '/../config/essentials.php' => config_path('essentials.php')], 'essentials-config');
         }
     }
 }

@@ -1,9 +1,11 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
+use FleetTower\Essentials\Configurables\PreventStrayRequests;
 use Illuminate\Support\Facades\Http;
-use NunoMaduro\Essentials\Configurables\PreventStrayRequests;
 
 beforeEach(function (): void {
     Http::preventStrayRequests(false);
@@ -23,7 +25,7 @@ it('is disabled by default', function (): void {
 });
 
 it('can be enabled via configuration but ignored as not during testing', function (): void {
-    config()->set('essentials.'.PreventStrayRequests::class, true);
+    config()->set('essentials.' . PreventStrayRequests::class, true);
 
     $preventStrayRequests = new PreventStrayRequests;
 
@@ -31,7 +33,7 @@ it('can be enabled via configuration but ignored as not during testing', functio
 });
 
 it('can be enabled via configuration when during testing', function (): void {
-    config()->set('essentials.'.PreventStrayRequests::class, true);
+    config()->set('essentials.' . PreventStrayRequests::class, true);
     app()->detectEnvironment(fn (): string => 'testing');
 
     $preventStrayRequests = new PreventStrayRequests;

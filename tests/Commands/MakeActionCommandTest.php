@@ -1,5 +1,7 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Artisan;
@@ -28,14 +30,14 @@ it('creates a new action file', function (): void {
 
     expect($exitCode)->toBe(0);
 
-    $expectedPath = app_path('Actions/'.$actionName.'.php');
+    $expectedPath = app_path('Actions/' . $actionName . '.php');
     expect(File::exists($expectedPath))->toBeTrue();
 
     $content = File::get($expectedPath);
 
     expect($content)
         ->toContain('namespace App\Actions;')
-        ->toContain('class '.$actionName)
+        ->toContain('class ' . $actionName)
         ->toContain('public function handle(): void');
 });
 
@@ -72,7 +74,7 @@ it('uses published stub when available', function (): void {
 
     $publishedStubPath = base_path('stubs/action.stub');
     $originalContent = File::get($publishedStubPath);
-    File::put($publishedStubPath, $originalContent."\n// this is user modified stub");
+    File::put($publishedStubPath, $originalContent . "\n// this is user modified stub");
 
     $actionName = 'TestPublishedStubAction';
     $this->artisan('make:action', ['name' => $actionName])

@@ -1,9 +1,11 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
+use FleetTower\Essentials\Configurables\AggressivePrefetching;
 use Illuminate\Support\Facades\Vite;
-use NunoMaduro\Essentials\Configurables\AggressivePrefetching;
 
 beforeEach(function (): void {
     Vite::usePrefetchStrategy(null);
@@ -24,7 +26,7 @@ it('is enabled by default', function (): void {
 });
 
 it('can be disabled via configuration', function (): void {
-    config()->set('essentials.'.AggressivePrefetching::class, false);
+    config()->set('essentials.' . AggressivePrefetching::class, false);
 
     $aggressivePrefetching = new AggressivePrefetching;
 

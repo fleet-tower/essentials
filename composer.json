@@ -1,5 +1,5 @@
 {
-    "name": "nunomaduro/essentials",
+    "name": "fleet-tower/essentials",
     "description": "Just better defaults for your Laravel projects.",
     "keywords": ["php", "laravel", "package", "essentials", "laravel-essentials"],
     "license": "MIT",
@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "php": "^8.3.0",
-        "laravel/framework": "^11.44.2|^12.29.0"
+        "php": "^8.4",
+        "laravel/framework": "^12.32.5"
     },
     "require-dev": {
         "laravel/pint": "^1.25.0",
@@ -20,11 +20,12 @@
         "pestphp/pest-plugin-type-coverage": "^3.6.1",
         "phpstan/phpstan": "^2.1.27",
         "rector/rector": "^2.1.7",
+        "roave/security-advisories": "dev-latest",
         "symfony/var-dumper": "^7.3.3"
     },
     "autoload": {
         "psr-4": {
-            "NunoMaduro\\Essentials\\": "src/"
+            "FleetTower\\Essentials\\": "src/"
         }
     },
     "autoload-dev": {
@@ -35,6 +36,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
+        "optimize-autoloader": true,
         "sort-packages": true,
         "preferred-install": "dist",
         "allow-plugins": {
@@ -46,7 +48,7 @@
         "lint": "pint",
         "test:refactor": "rector --dry-run",
         "test:lint": "pint --test",
-        "test:types": "phpstan analyse --ansi",
+        "test:types": "phpstan analyse --memory-limit=2G --ansi",
         "test:unit": "pest --colors=always --coverage --parallel",
         "test": [
             "@test:refactor",
@@ -58,7 +60,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "NunoMaduro\\Essentials\\EssentialsServiceProvider"
+                "FleetTower\\Essentials\\EssentialsServiceProvider"
             ]
         }
     }

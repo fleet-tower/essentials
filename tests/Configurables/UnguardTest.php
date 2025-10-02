@@ -1,9 +1,11 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
+use FleetTower\Essentials\Configurables\Unguard;
 use Illuminate\Database\Eloquent\Model;
-use NunoMaduro\Essentials\Configurables\Unguard;
 
 beforeEach(function (): void {
     Model::reguard();
@@ -23,7 +25,7 @@ it('is disabled by default', function (): void {
 });
 
 it('can be enabled via configuration', function (): void {
-    config()->set('essentials.'.Unguard::class, true);
+    config()->set('essentials.' . Unguard::class, true);
 
     $unguard = new Unguard;
 

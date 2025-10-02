@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NunoMaduro\Essentials\Configurables;
+namespace FleetTower\Essentials\Configurables;
 
+use FleetTower\Essentials\Contracts\Configurable;
 use Illuminate\Support\Facades\DB;
-use NunoMaduro\Essentials\Contracts\Configurable;
 
 final readonly class ProhibitDestructiveCommands implements Configurable
 {

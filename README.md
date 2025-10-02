@@ -1,22 +1,27 @@
-<a href="https://nunomaduro.com/">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="art/header-dark.png">
-    <img alt="Logo for essentials" src="art/header-light.png">
-  </picture>
-</a>
-
 # Essentials
 
 <p>
-    <a href="https://github.com/nunomaduro/essentials/actions"><img src="https://github.com/nunomaduro/essentials/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
-    <a href="https://packagist.org/packages/nunomaduro/essentials"><img src="https://img.shields.io/packagist/dt/nunomaduro/essentials" alt="Total Downloads"></a>
-    <a href="https://packagist.org/packages/nunomaduro/essentials"><img src="https://img.shields.io/packagist/v/nunomaduro/essentials" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/nunomaduro/essentials"><img src="https://img.shields.io/packagist/l/nunomaduro/essentials" alt="License"></a>
+    <a href="https://github.com/fleet-tower/essentials/actions"><img src="https://github.com/fleet-tower/essentials/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
+    <a href="https://packagist.org/packages/fleet-tower/essentials"><img src="https://img.shields.io/packagist/dt/fleet-tower/essentials" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/fleet-tower/essentials"><img src="https://img.shields.io/packagist/v/fleet-tower/essentials" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/fleet-tower/essentials"><img src="https://img.shields.io/packagist/l/fleet-tower/essentials" alt="License"></a>
 </p>
 
-Essentials provide **better defaults** for your Laravel applications including strict models, automatically eagerly loaded relationships, immutable dates, and more! 
+Essentials provide **better defaults** for your Laravel applications, including strict models, automatically eagerly loaded relationships, immutable dates, and more! 
 
-> **Requires [PHP 8.3+](https://php.net/releases/)**, **[Laravel 11+](https://laravel.com/docs/11.x/)**.
+### Notice
+
+This package is a **modified clone** of the original work by **[Nuno Maduro](https://github.com/nunomaduro/essentials)** and their contributors.  
+All credit and recognition belong to the original creator(s).
+
+The purpose of this fork is to:
+- Remove unused functionalities that are not required in our environment.
+- Ensure the package remains available and versioned within our company repository for long-term stability and security, regardless of potential future changes or removal from the original source.
+- Apply a namespace change strictly to reflect the internal usage and maintenance of this version, without implying ownership of the original work.
+
+This repository is **not an official distribution** of the original package. We encourage developers to use and support the **official package** whenever possible.
+
+> **Requires [PHP 8.4+](https://php.net/releases)**, **[Laravel 12+](https://laravel.com/docs/12.x)**.
 
 > **Note:** This package modifies the default behavior of Laravel. **It is recommended to use it in new projects** or when you are comfortable with the changes it introduces.
 
@@ -25,7 +30,7 @@ Essentials provide **better defaults** for your Laravel applications including s
 ⚡️ Get started by requiring the package using [Composer](https://getcomposer.org):
 
 ```bash
-composer require nunomaduro/essentials
+composer require fleet-tower/essentials
 ```
 
 ## Features
@@ -162,44 +167,6 @@ final readonly class CreateUserAction
 
 Actions help organize business logic in dedicated classes, promoting single responsibility and cleaner controllers.
 
-#### `essentials:pint`
-
-Laravel Pint is included by default in every Laravel project and is a great tool to keep your code clean and consistent. But it is configured very minimally by default. This command will publish a configuration file for Pint that includes the following:
-
-- "declare_strict_types" - Enforces strict types in all files.
-- "final_class" - Enforces final classes by default.
-- "ordered_class_elements" - Orders class elements by visibility and type.
-- "strict_comparison" - Enforces strict comparison in all files.
-- and more...
-
-```bash
-php artisan essentials:pint {--force} {--backup}
-```
-
-*Options:*
-- `--force` - Overwrites the existing configuration file without asking for confirmation.
-- `--backup` - Creates a backup of the existing configuration file.
-
-#### `essentials:rector`
-
-Rector is a powerful tool for refactoring and improving your codebase. This command will publish a configuration file for Rector that includes the following:
-
-- "deadCode" - Removes dead code from your codebase.
-- "codeQuality" - Improves code quality by applying best practices.
-- "typeDeclarations" - Adds type declarations to your codebase.
-- "privatization" - Privatizes class properties and methods where possible.
-- "earlyReturn" - Enforces early return statements in your codebase.
-- "strictBooleans" - Enforces strict boolean checks in your codebase.
-
-```bash
-php artisan essentials:rector {--force} {--backup}
-```
-
-*Options:*
-- `--force` - Overwrites the existing configuration file without asking for confirmation.
-- `--backup` - Creates a backup of the existing configuration file.
-
-
 ## Configuration
 
 All features are configurable through the `essentials.php` config file. By default, most features are enabled, but you can disable any feature by setting its configuration value to `false`:
@@ -207,8 +174,8 @@ All features are configurable through the `essentials.php` config file. By defau
 ```php
 // config/essentials.php
 return [
-    NunoMaduro\Essentials\Configurables\ShouldBeStrict::class => true,
-    NunoMaduro\Essentials\Configurables\Unguard::class => false,
+    FleetTower\Essentials\Configurables\ShouldBeStrict::class => true,
+    FleetTower\Essentials\Configurables\Unguard::class => false,
     // other configurables...
 ];
 ```

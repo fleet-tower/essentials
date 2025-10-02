@@ -1,9 +1,11 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
+use FleetTower\Essentials\Configurables\ShouldBeStrict;
 use Illuminate\Database\Eloquent\Model;
-use NunoMaduro\Essentials\Configurables\ShouldBeStrict;
 
 beforeEach(function (): void {
     Model::shouldBeStrict(false);
@@ -25,7 +27,7 @@ it('is enabled by default', function (): void {
 });
 
 it('can be disabled via configuration', function (): void {
-    config()->set('essentials.'.ShouldBeStrict::class, false);
+    config()->set('essentials.' . ShouldBeStrict::class, false);
 
     $shouldBeStrict = new ShouldBeStrict;
 

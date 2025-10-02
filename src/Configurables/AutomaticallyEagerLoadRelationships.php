@@ -2,16 +2,17 @@
 
 declare(strict_types=1);
 
-namespace NunoMaduro\Essentials\Configurables;
+namespace FleetTower\Essentials\Configurables;
 
+use FleetTower\Essentials\Contracts\Configurable;
 use Illuminate\Database\Eloquent\Model;
-use NunoMaduro\Essentials\Contracts\Configurable;
 
 final readonly class AutomaticallyEagerLoadRelationships implements Configurable
 {
     public function __construct(
         private string $modelClass = Model::class
-    ) {}
+    ) {
+    }
 
     /**
      * Whether the configurable is enabled or not.

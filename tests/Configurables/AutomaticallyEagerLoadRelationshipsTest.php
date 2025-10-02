@@ -1,13 +1,17 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
+use FleetTower\Essentials\Configurables\AutomaticallyEagerLoadRelationships;
 use Illuminate\Database\Eloquent\Model;
-use NunoMaduro\Essentials\Configurables\AutomaticallyEagerLoadRelationships;
 
 beforeEach()
-    ->skip(fn (): bool => ! method_exists(Model::class, 'automaticallyEagerLoadRelationships'),
-        'Automatically eager loading relationships is not supported in this version of Laravel.');
+    ->skip(
+        fn (): bool => ! method_exists(Model::class, 'automaticallyEagerLoadRelationships'),
+        'Automatically eager loading relationships is not supported in this version of Laravel.'
+    );
 
 it('enables automatic eager loading', function (): void {
     Model::automaticallyEagerLoadRelationships(false);
@@ -25,7 +29,7 @@ it('is enabled by default', function (): void {
 });
 
 it('can be disabled via configuration', function (): void {
-    config()->set('essentials.'.AutomaticallyEagerLoadRelationships::class, false);
+    config()->set('essentials.' . AutomaticallyEagerLoadRelationships::class, false);
 
     $eagerLoad = new AutomaticallyEagerLoadRelationships;
 
@@ -33,7 +37,9 @@ it('can be disabled via configuration', function (): void {
 });
 
 it('does nothing when automaticallyEagerLoadRelationships method does not exist', function (): void {
-    final class TestModel {}
+    final class TestModel
+    {
+    }
 
     $eagerLoad = new AutomaticallyEagerLoadRelationships(TestModel::class);
     $eagerLoad->configure();

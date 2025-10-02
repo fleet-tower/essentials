@@ -16,7 +16,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\AggressivePrefetching::class => true,
+    FleetTower\Essentials\Configurables\AggressivePrefetching::class => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\AutomaticallyEagerLoadRelationships::class => true,
+    FleetTower\Essentials\Configurables\AutomaticallyEagerLoadRelationships::class => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\FakeSleep::class => true,
+    FleetTower\Essentials\Configurables\FakeSleep::class => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\ForceScheme::class => true,
+    FleetTower\Essentials\Configurables\ForceScheme::class => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -74,7 +74,9 @@ return [
     */
 
     'environments' => [
-        NunoMaduro\Essentials\Configurables\ForceScheme::class => ['production'],
+        FleetTower\Essentials\Configurables\ForceScheme::class => [
+            'production',
+        ],
     ],
 
     /*
@@ -90,7 +92,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\ImmutableDates::class => true,
+    FleetTower\Essentials\Configurables\ImmutableDates::class => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -105,7 +107,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\PreventStrayRequests::class => true,
+    FleetTower\Essentials\Configurables\PreventStrayRequests::class => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -121,7 +123,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\ProhibitDestructiveCommands::class => true,
+    FleetTower\Essentials\Configurables\ProhibitDestructiveCommands::class => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -136,7 +138,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\SetDefaultPassword::class => true,
+    FleetTower\Essentials\Configurables\SetDefaultPassword::class => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -151,7 +153,7 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\ShouldBeStrict::class => true,
+    FleetTower\Essentials\Configurables\ShouldBeStrict::class => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -166,6 +168,6 @@ return [
     |
     */
 
-    NunoMaduro\Essentials\Configurables\Unguard::class => false,
+    FleetTower\Essentials\Configurables\Unguard::class => true,
 
 ];

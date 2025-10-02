@@ -1,10 +1,12 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
 use Carbon\Carbon;
+use FleetTower\Essentials\Configurables\ImmutableDates;
 use Illuminate\Support\Facades\Date;
-use NunoMaduro\Essentials\Configurables\ImmutableDates;
 
 beforeEach(function (): void {
     Date::use(Carbon::class);
@@ -26,7 +28,7 @@ it('is enabled by default', function (): void {
 });
 
 it('can be disabled via configuration', function (): void {
-    config()->set('essentials.'.ImmutableDates::class, false);
+    config()->set('essentials.' . ImmutableDates::class, false);
 
     $immutableDates = new ImmutableDates;
 

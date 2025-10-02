@@ -1,9 +1,11 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
+use FleetTower\Essentials\Configurables\FakeSleep;
 use Illuminate\Support\Sleep;
-use NunoMaduro\Essentials\Configurables\FakeSleep;
 
 beforeEach(function (): void {
     Sleep::fake(false);
@@ -25,7 +27,7 @@ it('is disabled by default', function (): void {
 });
 
 it('can be enabled via configuration but ignored as not during testing', function (): void {
-    config()->set('essentials.'.FakeSleep::class, true);
+    config()->set('essentials.' . FakeSleep::class, true);
 
     $fakeSleep = new FakeSleep;
 
@@ -33,7 +35,7 @@ it('can be enabled via configuration but ignored as not during testing', functio
 });
 
 it('can be enabled via configuration when during testing', function (): void {
-    config()->set('essentials.'.FakeSleep::class, true);
+    config()->set('essentials.' . FakeSleep::class, true);
     app()->detectEnvironment(fn (): string => 'testing');
 
     $fakeSleep = new FakeSleep;

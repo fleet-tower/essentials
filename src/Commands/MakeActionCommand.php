@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NunoMaduro\Essentials\Commands;
+namespace FleetTower\Essentials\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
@@ -39,7 +39,7 @@ final class MakeActionCommand extends GeneratorCommand
     {
         // First check if the class already exists
         if ($this->alreadyExists($this->getNameInput())) {
-            $this->error($this->type.' already exists!');
+            $this->error($this->type . ' already exists!');
 
             return 1;
         }
@@ -75,7 +75,7 @@ final class MakeActionCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace.'\Actions';
+        return $rootNamespace . '\Actions';
     }
 
     /**
@@ -86,7 +86,7 @@ final class MakeActionCommand extends GeneratorCommand
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
         // Use the app_path helper to get the correct path
-        return app_path(str_replace('\\', '/', $name).'.php');
+        return app_path(str_replace('\\', '/', $name) . '.php');
     }
 
     /**
@@ -98,6 +98,6 @@ final class MakeActionCommand extends GeneratorCommand
 
         return file_exists($basePath)
             ? $basePath
-            : __DIR__.'/../../'.$stub;
+            : __DIR__ . '/../../' . $stub;
     }
 }

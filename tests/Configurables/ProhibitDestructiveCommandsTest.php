@@ -1,10 +1,12 @@
 <?php
 
+/** @noinspection StaticClosureCanBeUsedInspection */
+
 declare(strict_types=1);
 
+use FleetTower\Essentials\Configurables\ProhibitDestructiveCommands;
 use Illuminate\Database\Console\Migrations\FreshCommand;
 use Illuminate\Support\Facades\DB;
-use NunoMaduro\Essentials\Configurables\ProhibitDestructiveCommands;
 
 beforeEach(function (): void {
     DB::prohibitDestructiveCommands(false);
@@ -28,7 +30,7 @@ it('is enabled by default', function (): void {
 });
 
 it('can be disabled via configuration', function (): void {
-    config()->set('essentials.'.ProhibitDestructiveCommands::class, false);
+    config()->set('essentials.' . ProhibitDestructiveCommands::class, false);
 
     $prohibitDestructiveCommands = new ProhibitDestructiveCommands;
 
