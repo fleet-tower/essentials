@@ -1,10 +1,10 @@
 # Essentials
 
 <p>
-    <a href="https://github.com/fleet-tower/essentials/actions"><img src="https://github.com/fleet-tower/essentials/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
-    <a href="https://packagist.org/packages/fleet-tower/essentials"><img src="https://img.shields.io/packagist/dt/fleet-tower/essentials" alt="Total Downloads"></a>
-    <a href="https://packagist.org/packages/fleet-tower/essentials"><img src="https://img.shields.io/packagist/v/fleet-tower/essentials" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/fleet-tower/essentials"><img src="https://img.shields.io/packagist/l/fleet-tower/essentials" alt="License"></a>
+    <a href="https://github.com/fleet-tower/essentials/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/fleet-tower/essentials/tests.yml?style=for-the-badge&logo=github&label=tests" alt="Build Status"></a>
+    <a href="https://packagist.org/packages/fleet-tower/essentials"><img src="https://img.shields.io/packagist/dt/fleet-tower/essentials?style=for-the-badge" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/fleet-tower/essentials"><img src="https://img.shields.io/packagist/v/fleet-tower/essentials?style=for-the-badge&logo=Packagist" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/fleet-tower/essentials"><img src="https://img.shields.io/packagist/l/fleet-tower/essentials?style=for-the-badge&color=blue" alt="License"></a>
 </p>
 
 Essentials provide **better defaults** for your Laravel applications, including strict models, automatically eagerly loaded relationships, immutable dates, and more! 
