@@ -55,8 +55,6 @@ php artisan vendor:publish --tag=essentials-config
 - [Fake Sleep](#-fake-sleep)
 - [Artisan Commands](#-artisan-commands)
   - [make:action](#makeaction)
-  - [essentials:pint](#essentialspint)
-  - [essentials:rector](#essentialsrector)
 
 ### ✅ Strict Models
 
