@@ -5,7 +5,9 @@
 /composer.lock
 /phpunit.xml
 /phpstan.neon
+/pnpm-lock.yaml
 /vendor/
+/node_modules/
 *.swp
 *.swo
 .idea
